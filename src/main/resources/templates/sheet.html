@@ -9,10 +9,8 @@
 <body class="page light-theme">
     <div class="background"></div>
     <!--Some badass DnD shit will be here-->
-
-    <form th:method="POST" th:object="${character}" th:action="@{/createCharacter}">
-
-        <div class="text">
+    <div class="text">
+        <form th:method="POST" th:object="${character}" th:action="@{/createCharacter}">
 
             <div th:if="${#fields.hasErrors()}">
         <span class="validationError">
@@ -80,21 +78,24 @@
 
             <br><br><br>
 
-            <button>Поехали</button>
-        </div>
-    </form>
+            <button class="simpleButton" type="submit">Create</button>
+
+        </form>
+
+    </div>
+
 
     <div class="logout">
         <form method="POST" th:action="@{/logout}">
-            <input type="submit" value="Logout"/>
+            <button class="smallButton" type="submit">Logout</button>
         </form>
     </div>
 
-    <button class="theme-button" type="button" th:onclick="changeTheme()">Change theme</button>
-<!--            -->
+    <button class="theme-button smallButton" type="button" th:onclick="changeTheme()">Change theme</button>
+    <!--            -->
 
 
-<!--    <script src="../static/scripts/main.js"></script>-->
+    <!--    <script src="../static/scripts/main.js"></script>-->
 
 
 </body>

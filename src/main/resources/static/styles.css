@@ -8,78 +8,121 @@ body, html {
 
 /*Home*/
 
-.background-image{
+.background-image {
     background-image: url('images/blurredImg.jpg');
     height: 100%;
-    background-position:  center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-header{
+header {
     color: gold;
     font-size: 40px;
-text-align: center;
+    text-align: center;
     padding-top: 30px;
 
 }
 
-.moto{
+.moto {
     color: crimson;
     font-size: 35px;
     /*transform: translate(-50%,-50%);*/
 }
 
-.buttons{
+.buttons {
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-.light-theme .background{
-    background-color: #e6e0c3;
+.buttons li {
+    display: inline-block;
+}
+
+.simpleButton {
+    margin: 10px;
+    background-color: #8C4C27;
+    padding: 15px;
+    width: 250px;
+    border-radius: 8px;
+    border: none;
+    transition-duration: 0.4s;
+    color: #D9D4BA;
+    text-align: center;
+    font-size: 16px;
+
+}
+
+.simpleButton:hover {
+    background-color: #D9D4BA;
+    color: #8C4C27;
+}
+
+.smallButton {
+    margin: 10px;
+    background-color: #8C4C27;
+    padding: 5px;
+    width: 80px;
+    border-radius: 4px;
+    border: none;
+    transition-duration: 0.4s;
+    color: #D9D4BA;
+    text-align: center;
+    font-size: 14px;
+
+}
+
+.smallButton:hover {
+    background-color: #D9D4BA;
+    color: #8C4C27;
+}
+
+
+
+.light-theme .background {
+    background-color: #F2EDD0;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.dark-theme .background{
-    background-color: black;
+.dark-theme .background {
+    background-color: #59514F;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.text{
+.text {
     position: absolute;
     top: 5%;
     left: 5%;
     font-family: Cambria sans-serif;
     font-size: 20px;
-    color: #30251e;
+    color: #59514F;
 }
 
-.all{
+.all {
 
 }
 
-.validationError{
-    color:red;
+.validationError {
+    color: red;
     font-size: 17px;
 }
 
 
-
-
-.buttonA{
+.buttonA {
     display: inline-block;
-/*margin-left: auto;*/
-/*margin-top: 200px;*/
-position: absolute;
+    /*margin-left: auto;*/
+    /*margin-top: 200px;*/
+    position: absolute;
     top: 55%;
     left: 50%;
 
@@ -87,8 +130,7 @@ position: absolute;
 }
 
 
-
-.buttonB{
+.buttonB {
     display: inline-block;
     position: absolute;
     top: 65%;
@@ -97,19 +139,19 @@ position: absolute;
     transform: translate(-50%, -50%);
 }
 
-.logout{
+.logout {
     position: absolute;
     top: 5%;
     right: 5%;
 }
 
-.login{
+.login {
     position: absolute;
     top: 5%;
     right: 5%;
 }
 
-.theme-button{
+.theme-button {
     position: absolute;
     top: 10%;
     right: 5%;
