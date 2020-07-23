@@ -4,7 +4,10 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Cambria sans-serif;
+    background-color: #F2EDD0;
+    font-size: 20px;
 }
+
 
 /*Home*/
 
@@ -30,7 +33,7 @@ header {
     /*transform: translate(-50%,-50%);*/
 }
 
-.buttons {
+.home-buttons {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,13 +42,13 @@ header {
     text-align: center;
 }
 
-.buttons li {
+.home-buttons li {
     display: inline-block;
 }
 
 .simpleButton {
     margin: 10px;
-    background-color: #8C4C27;
+    background-color: #260101;
     padding: 15px;
     width: 250px;
     border-radius: 8px;
@@ -59,12 +62,12 @@ header {
 
 .simpleButton:hover {
     background-color: #D9D4BA;
-    color: #8C4C27;
+    color: #260101;
 }
 
 .smallButton {
     margin: 10px;
-    background-color: #8C4C27;
+    background-color: #260101;
     padding: 5px;
     width: 80px;
     border-radius: 4px;
@@ -78,25 +81,7 @@ header {
 
 .smallButton:hover {
     background-color: #D9D4BA;
-    color: #8C4C27;
-}
-
-
-
-.light-theme .background {
-    background-color: #F2EDD0;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.dark-theme .background {
-    background-color: #59514F;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    color: #260101;
 }
 
 .text {
@@ -105,7 +90,7 @@ header {
     left: 5%;
     font-family: Cambria sans-serif;
     font-size: 20px;
-    color: #59514F;
+    color: #260101;
 }
 
 .all {
@@ -117,45 +102,48 @@ header {
     font-size: 17px;
 }
 
-
-.buttonA {
-    display: inline-block;
-    /*margin-left: auto;*/
-    /*margin-top: 200px;*/
-    position: absolute;
-    top: 55%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
+.side-buttons{
+    margin: 10px;
+    text-align: right;
 }
 
-
-.buttonB {
-    display: inline-block;
-    position: absolute;
-    top: 65%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
+.side-buttons li{
+    display: block;
+    margin: 10px;
 }
 
-.logout {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-}
-
-.login {
+.login-out {
     position: absolute;
     top: 5%;
     right: 5%;
 }
 
 .theme-button {
-    position: absolute;
-    top: 10%;
-    right: 5%;
+
 }
+
+
+/*body .light-theme {
+    background-color: #F2EDD0;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body .dark-theme {
+    background-color: #59514F;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+/*.theme-button {*/
+/*    position: absolute;*/
+/*    top: 10%;*/
+/*    right: 5%;*/
+/*}*/
 
 
 /*div.ingredient-group:nth-child(odd) {*/

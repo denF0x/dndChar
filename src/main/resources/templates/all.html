@@ -7,34 +7,42 @@
     <title>All Characters</title>
 </head>
 <body>
-<div class="background"></div>
-<div class="text">
-<table border="1">
-    <tr>
-        <th>id</th>
-        <th>Name</th>
-        <th>Race</th>
-        <th>Class</th>
-        <th>Alignment</th>
-        <th>Created By</th>
-    </tr>
-    <tr th:each="character : ${characterList}">
-        <td th:text="${character.getId()}"></td>
-        <td th:text="${character.getName()}"></td>
-        <td th:text="${character.getRace().getDisplayValue()}"></td>
-        <td th:text="${character.getKlass().getDisplayValue()}"></td>
-        <td th:text="${character.getAlignment().getDisplayValue()}"></td>
-        <td th:text="${character.getUser().getUsername()}"></td>
-    </tr>
-</table>
-</div>
+    <div class="background"></div>
+    <div class="text">
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Race</th>
+                <th>Class</th>
+                <th>Alignment</th>
+                <th>Created By</th>
+            </tr>
+            <tr th:each="character, statVar : ${characterList}">
+                <td th:text="${statVar.index+1}"></td>
+                <td th:text="${character.getName()}"></td>
+                <td th:text="${character.getRace().getDisplayValue()}"></td>
+                <td th:text="${character.getKlass().getDisplayValue()}"></td>
+                <td th:text="${character.getAlignment().getDisplayValue()}"></td>
+                <td th:text="${character.getUser().getUsername()}"></td>
+            </tr>
+        </table>
+    </div>
 
 
-<div class="logout">
-    <form method="POST" th:action="@{/logout}">
-        <input type="submit" value="Logout"/>
-    </form>
-</div>
+    <ul class="side-buttons">
+        <li>
+            <form method="POST" th:action="@{/logout}">
+                <button class="smallButton" type="submit">Logout</button>
+            </form>
+        </li>
+
+        <li>
+            <form method="GET" th:action="@{/}">
+                <button class="smallButton" type="submit">Home</button>
+            </form>
+        </li>
+    </ul>
 
 </body>
 </html>

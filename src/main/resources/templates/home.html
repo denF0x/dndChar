@@ -24,7 +24,7 @@
 
         </header>
 
-        <section class="buttons">
+        <section class="home-buttons">
 
             <li>
                 <form method="get" action="/sheet">
@@ -57,22 +57,20 @@
         <!--            <button type="submit">А можно всех посмотреть?</button>-->
         <!--        </form>-->
         <!--    </div>-->
+        <div class="login-out">
+            <span th:if="${user == null}">
+                <form method="POST" th:action="@{/login}">
+                    <button class="smallButton" type="submit">Login</button>
+                </form>
+            </span>
 
-        <span th:if="${user == null}">
-       <div class="login">
-           <form method="POST" th:action="@{/login}">
-            <button class="smallButton" type="submit">Login</button>
-        </form>
-       </div>
-    </span>
+            <span th:unless="${user == null}">
+                <form method="POST" th:action="@{/logout}">
+                    <button class="smallButton" type="submit">Logout</button>
+                </form>
+            </span>
+        </div>
 
-        <span th:unless="${user == null}">
-    <div class="logout">
-        <form method="POST" th:action="@{/logout}">
-            <button class="smallButton" type="submit">Logout</button>
-        </form>
-    </div>
-</span>
     </div>
 </body>
 

@@ -6,8 +6,8 @@
     <script type="text/javascript" th:src="@{/scripts/main.js}"></script>
     <title>Character Sheet</title>
 </head>
-<body class="page light-theme">
-    <div class="background"></div>
+<body>
+
     <!--Some badass DnD shit will be here-->
     <div class="text">
         <form th:method="POST" th:object="${character}" th:action="@{/createCharacter}">
@@ -28,7 +28,6 @@
 
             <br><br><br>
 
-            <div class="grid">
                 <!--        выбор точечками в столбике. реально жалко удалять-->
                 <!--        <div class="enums" id="race" th:each="raceOpt : ${T(com.babkin.dndChar.models.enums.Race).values()}">-->
                 <!--            <div class="enum">-->
@@ -74,7 +73,7 @@
                       th:errors="*{alignment}"> Alignment error
             </span>
 
-            </div>
+
 
             <br><br><br>
 
@@ -84,20 +83,31 @@
 
     </div>
 
+    <ul class="side-buttons">
+        <li>
+            <form method="POST" th:action="@{/logout}">
+                <button class="smallButton" type="submit">Logout</button>
+            </form>
+        </li>
 
-    <div class="logout">
-        <form method="POST" th:action="@{/logout}">
-            <button class="smallButton" type="submit">Logout</button>
-        </form>
-    </div>
+        <li>
+            <form method="GET" th:action="@{/}">
+                <button class="smallButton" type="submit">Home</button>
+            </form>
+        </li>
 
-    <button class="theme-button smallButton" type="button" th:onclick="changeTheme()">Change theme</button>
+<!--        <li>
+            <button class="theme-button smallButton" type="button"
+                    th:onclick="changeTheme()">Change theme
+            </button>
+        </li>-->
+    </ul>
+
+
     <!--            -->
 
 
     <!--    <script src="../static/scripts/main.js"></script>-->
-
-
 </body>
 
 </html>
