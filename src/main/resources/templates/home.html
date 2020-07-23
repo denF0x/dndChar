@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+
+
+    <title>Hello</title>
+</head>
+<body class="home light-theme">
+    <div class="background-image">
+    <header>
+
+        <span th:if="${user == null}">
+                Welcome, some random Dnd Lover
+        </span>
+
+        <span th:unless="${user == null}">
+                Welcome, <span th:text="${user.getFullname()}"></span>
+            <br>
+            <span class="moto" th:text="${user.getMoto()}"></span>
+        </span>
+
+    </header>
+
+    <section class="buttons">
+
+        <form method="get" action="/sheet">
+        <button class="simpleButton" type="submit">
+            Create Character
+        </button>
+        </form>
+
+        <form method="get" action="/all">
+            <button class="simpleButton" type="submit">
+                А можно всех посмотреть?
+            </button>
+        </form>
+
+
+    </section>
+
+<!--    <div class="buttonA">-->
+<!--        <a th:href="@{/sheet}">-->
+<!--            <img src="images/CreateButton.png" style="width:339px;height:100px;">-->
+<!--        </a>-->
+<!--    </div>-->
+
+<!--    <br><br>-->
+
+<!--    <div class="buttonB">-->
+<!--        <form method="get" action="/all">-->
+<!--            <button type="submit">А можно всех посмотреть?</button>-->
+<!--        </form>-->
+<!--    </div>-->
+
+    <span th:if="${user == null}">
+       <div class="login">
+           <form method="POST" th:action="@{/login}">
+            <input type="submit" value="Login"/>
+        </form>
+       </div>
+    </span>
+
+    <span th:unless="${user == null}">
+    <div class="logout">
+        <form method="POST" th:action="@{/logout}">
+            <input type="submit" value="Logout"/>
+        </form>
+    </div>
+</span>
+    </div>
+</body>
+
+</html>

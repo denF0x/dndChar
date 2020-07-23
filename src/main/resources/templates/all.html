@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <title>All Characters</title>
+</head>
+<body>
+<div class="background"></div>
+<div class="text">
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Race</th>
+        <th>Class</th>
+        <th>Alignment</th>
+        <th>Created By</th>
+    </tr>
+    <tr th:each="character : ${characterList}">
+        <td th:text="${character.getId()}"></td>
+        <td th:text="${character.getName()}"></td>
+        <td th:text="${character.getRace().getDisplayValue()}"></td>
+        <td th:text="${character.getKlass().getDisplayValue()}"></td>
+        <td th:text="${character.getAlignment().getDisplayValue()}"></td>
+        <td th:text="${character.getUser().getUsername()}"></td>
+    </tr>
+</table>
+</div>
+
+
+<div class="logout">
+    <form method="POST" th:action="@{/logout}">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+
+</body>
+</html>

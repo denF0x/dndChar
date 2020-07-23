@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <script type="text/javascript" th:src="@{/scripts/main.js}"></script>
+    <title>Character Sheet</title>
+</head>
+<body class="page light-theme">
+    <div class="background"></div>
+    <!--Some badass DnD shit will be here-->
+
+    <form th:method="POST" th:object="${character}" th:action="@{/createCharacter}">
+
+        <div class="text">
+
+            <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+        Please correct the problems below and resubmit.
+            <br><br>
+        </span>
+            </div>
+
+            <label for="charName">Your character name: </label>
+            <input type="text" name="name" id="charName">
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}"> Name error
+        </span>
+
+            <br><br><br>
+
+            <div class="grid">
+                <!--        выбор точечками в столбике. реально жалко удалять-->
+                <!--        <div class="enums" id="race" th:each="raceOpt : ${T(com.babkin.dndChar.models.enums.Race).values()}">-->
+                <!--            <div class="enum">-->
+                <!--                <input type="checkbox" th:field="*{race}" th:value="${raceOpt}"/>-->
+                <!--                <span th:text="${raceOpt.getDisplayValue()}"></span>-->
+                <!--            </div>-->
+                <!--        </div>-->
+                <!--        закончился-->
+                <label for="raceSelect">Choose race:</label>
+                <select th:field="*{race}" id="raceSelect">
+                    <option value="" th:disabled selected hidden></option>
+                    <option th:each="raceOpt : ${T(com.babkin.dndChar.models.enums.Race).values()}"
+                            th:value="${raceOpt}"
+                            th:utext="${raceOpt.getDisplayValue()}"></option>
+                </select>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('race')}"
+                      th:errors="*{race}"> Race error
+            </span>
+                <br>
+
+                <label for="klassSelect">Choose class:</label>
+                <select th:field="*{klass}" id="klassSelect">
+                    <option value="" th:disabled selected hidden></option>
+                    <option th:each="klassOpt : ${T(com.babkin.dndChar.models.enums.Klass).values()}"
+                            th:value="${klassOpt}" th:utext="${klassOpt.getDisplayValue()}"></option>
+                </select>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('klass')}"
+                      th:errors="*{klass}"> Class error
+            </span>
+
+                <br>
+
+                <label for="alignSelect">Choose alignment:</label>
+                <select th:field="*{alignment}" id="alignSelect">
+                    <option value="" th:disabled selected hidden></option>
+                    <option th:each="alignmentOpt : ${T(com.babkin.dndChar.models.enums.Alignment).values()}"
+                            th:value="${alignmentOpt}" th:utext="${alignmentOpt.getDisplayValue()}"></option>
+                </select>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('alignment')}"
+                      th:errors="*{alignment}"> Alignment error
+            </span>
+
+            </div>
+
+            <br><br><br>
+
+            <button>Поехали</button>
+        </div>
+    </form>
+
+    <div class="logout">
+        <form method="POST" th:action="@{/logout}">
+            <input type="submit" value="Logout"/>
+        </form>
+    </div>
+
+    <button class="theme-button" type="button" th:onclick="changeTheme()">Change theme</button>
+<!--            -->
+
+
+<!--    <script src="../static/scripts/main.js"></script>-->
+
+
+</body>
+
+</html>
